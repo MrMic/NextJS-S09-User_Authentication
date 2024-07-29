@@ -73,3 +73,13 @@ export async function login(_prevState, formData) {
   await createAuthSession(existingUser.id);
   redirect('/training')
 }
+
+// ______________________________________________________________________
+export async function auth(mode, prevState, formData) {
+  switch (mode) {
+    case 'login':
+      return login(prevState, formData);
+    case 'signup':
+      return signup(prevState, formData);
+  }
+}
